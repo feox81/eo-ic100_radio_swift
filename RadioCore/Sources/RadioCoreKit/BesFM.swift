@@ -1,5 +1,21 @@
 import Foundation
-import USBShim
+
+// C++ 인터페이스는 Swift에서 직접 호출할 수 없으므로 C 래퍼 심볼을 통해 연결
+@_silgen_name("rc_create") private func rc_create() -> UnsafeMutableRawPointer?
+@_silgen_name("rc_destroy") private func rc_destroy(_ p: UnsafeMutableRawPointer?)
+@_silgen_name("rc_set_power") private func rc_set_power(_ p: UnsafeMutableRawPointer?, _ on: Bool)
+@_silgen_name("rc_get_power") private func rc_get_power(_ p: UnsafeMutableRawPointer?) -> Bool
+@_silgen_name("rc_set_recording") private func rc_set_recording(_ p: UnsafeMutableRawPointer?, _ on: Bool)
+@_silgen_name("rc_get_recording") private func rc_get_recording(_ p: UnsafeMutableRawPointer?) -> Bool
+@_silgen_name("rc_set_spacing") private func rc_set_spacing(_ p: UnsafeMutableRawPointer?, _ spacing: UInt16)
+@_silgen_name("rc_get_spacing") private func rc_get_spacing(_ p: UnsafeMutableRawPointer?) -> UInt8
+@_silgen_name("rc_set_mute") private func rc_set_mute(_ p: UnsafeMutableRawPointer?, _ on: Bool)
+@_silgen_name("rc_get_mute") private func rc_get_mute(_ p: UnsafeMutableRawPointer?) -> Bool
+@_silgen_name("rc_set_volume") private func rc_set_volume(_ p: UnsafeMutableRawPointer?, _ vol: UInt16)
+@_silgen_name("rc_get_volume") private func rc_get_volume(_ p: UnsafeMutableRawPointer?) -> UInt8
+@_silgen_name("rc_set_channel") private func rc_set_channel(_ p: UnsafeMutableRawPointer?, _ mhz: Double)
+@_silgen_name("rc_get_channel") private func rc_get_channel(_ p: UnsafeMutableRawPointer?) -> Double
+@_silgen_name("rc_get_rssi") private func rc_get_rssi(_ p: UnsafeMutableRawPointer?) -> UInt8
 
 public enum BesCmd: UInt16 {
     // Request types
@@ -114,129 +130,34 @@ public struct BesFMStatus {
 }
 
 public final class BesFM {
-    private var handle: UnsafeMutableRawPointer?
-    private var preparedInterrupt: Bool = false
+    private var core: UnsafeMutableRawPointer?
 
     public init?() {
-        let pids: [UInt16] = [0xa054, 0xa059, 0xa05b]
-        let dev: UnsafeMutableRawPointer? = pids.withUnsafeBufferPointer { buf -> UnsafeMutableRawPointer? in
-            var crit = usb_shim_match_criteria(vendor_id: 0x04e8, product_ids: buf.baseAddress, product_ids_count: buf.count)
-            return usb_open_first(&crit)
-        }
-        guard let dev else { return nil }
-        self.handle = dev
-        // Prepare interrupt on interface 4 to match python
-        _ = usb_prepare_interrupt_in(self.handle, 4)
-        self.preparedInterrupt = true
+        core = rc_create()
+        if core == nil { return nil }
     }
 
-    deinit {
-        if let dev = handle { usb_close(dev) }
-    }
+    deinit { rc_destroy(core) }
 
-    private func set(_ cmd: SetCmd, _ value: UInt16) {
-        var local = [UInt8](repeating: 0, count: 1)
-        let count = UInt16(local.count)
-        local.withUnsafeMutableBufferPointer { ptr in
-            _ = usb_control_transfer(self.handle, UInt8(BesCmd.read.rawValue), UInt8(BesCmd.set.rawValue), cmd.rawValue, value, ptr.baseAddress, count, 1000)
-        }
-    }
+    public func setPower(_ on: Bool) { rc_set_power(core, on) }
+    public func getPower() -> Bool { rc_get_power(core) }
 
-    private func get(_ cmd: GetCmd, outLength: Int = Int(BesCmd.getDataLength)) -> [UInt8] {
-        var local = [UInt8](repeating: 0, count: outLength)
-        let count = UInt16(local.count)
-        let read: Int32 = local.withUnsafeMutableBufferPointer { ptr in
-            usb_control_transfer(self.handle, UInt8(BesCmd.read.rawValue), UInt8(BesCmd.get.rawValue), cmd.rawValue, BesCmd.getFmIndex, ptr.baseAddress, count, 1000)
-        }
-        if read > 0 { return Array(local.prefix(Int(read))) } else { return local }
-    }
+    public func setRecording(_ on: Bool) { rc_set_recording(core, on) }
+    public func getRecording() -> Bool { rc_get_recording(core) }
 
-    private func query(outLength: Int = 12) -> [UInt8] {
-        var local = [UInt8](repeating: 0, count: outLength)
-        let count = UInt16(local.count)
-        let read: Int32 = local.withUnsafeMutableBufferPointer { ptr in
-            usb_control_transfer(self.handle, UInt8(BesCmd.read.rawValue), UInt8(BesCmd.query.rawValue), 0, 0, ptr.baseAddress, count, 200)
-        }
-        if read > 0 { return Array(local.prefix(Int(read))) } else { return local }
-    }
+    public func setChannelSpacing(_ spacing: ChannelSpacing) { rc_set_spacing(core, spacing.rawValue) }
+    public func getChannelSpacing() -> UInt8 { rc_get_spacing(core) }
 
-    // API
-    public func setPower(_ on: Bool) {
-        guard !getRecording() else { return }
-        set(.powerState, on ? 1 : 0)
-    }
+    public func setMute(_ on: Bool) { rc_set_mute(core, on) }
+    public func getMute() -> Bool { rc_get_mute(core) }
 
-    public func getPower() -> Bool { get(.fmIcPowerOnState)[0] != 0 }
+    public func setVolume(_ vol: UInt16) { rc_set_volume(core, vol) }
+    public func getVolume() -> UInt8 { rc_get_volume(core) }
 
-    public func setRecording(_ on: Bool) {
-        guard !getPower() else { return }
-        set(.recordingMode, on ? 1 : 0)
-    }
+    public func setChannel(_ mhz: Double) { rc_set_channel(core, mhz) }
+    public func getChannel() -> Double { rc_get_channel(core) }
 
-    public func getRecording() -> Bool { get(.fmRecordingModeStatus)[0] != 0 }
-
-    public func setBand(_ band: FMBand) { set(.fmBand, band.rawValue) }
-    public func getBand() -> UInt8 { get(.currentFmBand)[0] }
-
-    public func setChannelSpacing(_ spacing: ChannelSpacing) { set(.chanSpacing, spacing.rawValue) }
-    public func getChannelSpacing() -> UInt8 { get(.currentSpacing)[0] }
-
-    public func setMute(_ on: Bool) { set(.mute, on ? 1 : 0) }
-    public func getMute() -> Bool { get(.muteState)[0] != 0 }
-
-    public func setVolume(_ vol: UInt16) { set(.volume, min(15, vol)) }
-    public func getVolume() -> UInt8 { get(.currentVolume)[0] }
-
-    public func setMono(_ on: Bool) { set(.monoMode, on ? 1 : 0) }
-    public func getMono() -> Bool { get(.forcedMonoState)[0] != 0 }
-
-    public func seekUp() { set(.seekStart, 1) }
-    public func seekDown() { set(.seekStart, 2) }
-    public func seekStop() { set(.seekStop, 0) }
-
-    public func setChannel(_ mhz: Double) { set(.channel, UInt16(mhz * 100.0)) }
-    public func getChannel() -> Double {
-        let bytes = get(.currentChannel, outLength: 2)
-        let value = UInt16(bytes[0]) | (UInt16(bytes[1]) << 8)
-        return Double(value) / 100.0
-    }
-
-    public func setRds(_ on: Bool) { set(.rds, on ? 1 : 0) }
-    public func getRds() -> Bool { get(.rdsStatus)[0] != 0 }
-
-    public func getRssi() -> UInt8 { get(.currentRssi)[0] }
-
-    public func getStatus() -> BesFMStatus {
-        let data = query(outLength: 12)
-        guard !data.isEmpty else { return BesFMStatus(kind: .raw, success: nil, freqMHz: nil, strength: nil, error: nil, rds: nil, raw: Data()) }
-        switch data[0] {
-        case 0: // seek
-            if data.count >= 5 {
-                let success = data[1] != 0
-                let freq = Double(UInt16(data[2]) | (UInt16(data[3]) << 8)) / 100.0
-                let strength = data[4]
-                return BesFMStatus(kind: .seek, success: success, freqMHz: freq, strength: strength, error: nil, rds: nil, raw: nil)
-            }
-        case 1: // tune
-            if data.count >= 5 {
-                let success = data[1] != 0
-                let freq = Double(UInt16(data[2]) | (UInt16(data[3]) << 8)) / 100.0
-                let strength = data[4]
-                return BesFMStatus(kind: .tune, success: success, freqMHz: freq, strength: strength, error: nil, rds: nil, raw: nil)
-            }
-        case 2: // rds
-            if data.count >= 9 {
-                let error = data[1]
-                let strength = data[2]
-                // Reorder like python: rds[1::-1]+rds[3:1:-1]+rds[5:3:-1]+rds[7:5:-1]
-                let rds = Data([data[4], data[3], data[6], data[5], data[8], data[7], data[10], data[9]].prefix(8))
-                return BesFMStatus(kind: .rds, success: nil, freqMHz: nil, strength: strength, error: error, rds: rds, raw: nil)
-            }
-        default:
-            return BesFMStatus(kind: .raw, success: nil, freqMHz: nil, strength: nil, error: nil, rds: nil, raw: Data(data))
-        }
-        return BesFMStatus(kind: .raw, success: nil, freqMHz: nil, strength: nil, error: nil, rds: nil, raw: Data(data))
-    }
+    public func getRssi() -> UInt8 { rc_get_rssi(core) }
 }
 
 

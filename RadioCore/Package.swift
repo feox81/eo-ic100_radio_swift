@@ -24,8 +24,17 @@ let package = Package(
             ]
         ),
         .target(
-            name: "RadioCoreKit",
+            name: "RadioCoreCPP",
             dependencies: ["USBShim"],
+            path: "Sources/RadioCoreCPP",
+            publicHeadersPath: "include",
+            cxxSettings: [
+                .unsafeFlags(["-std=c++17"]) 
+            ]
+        ),
+        .target(
+            name: "RadioCoreKit",
+            dependencies: ["RadioCoreCPP"],
             path: "Sources/RadioCoreKit"
         ),
     ]
