@@ -27,7 +27,7 @@ targets:
         NSPrincipalClass: NSApplication
         NSHighResolutionCapable: true
     sources:
-      - path: EOIC100RadioApp
+      - path: EOIC100RadioApp/Shared
     dependencies:
       - package: RadioCore
         product: RadioCoreKit
@@ -48,5 +48,26 @@ targets:
     settings:
       SWIFT_VERSION: 5.9
       MACOSX_DEPLOYMENT_TARGET: 13.0
+
+  EOIC100RadioiOS:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    info:
+      path: EOIC100RadioApp/Info_iOS.plist
+      properties:
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+    sources:
+      - path: EOIC100RadioApp/Shared
+    dependencies:
+      - package: RadioCore
+        product: RadioCoreKit
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.eoic100.radio.ios
+      SWIFT_VERSION: 5.9
+      TARGETED_DEVICE_FAMILY: 2
 
 
