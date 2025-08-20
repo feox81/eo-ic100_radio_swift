@@ -1,0 +1,412 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0465628702D50FE2ADF44D2C /* RadioCore in Frameworks */ = {isa = PBXBuildFile; productRef = 52A2439B14825C9E83079613 /* RadioCore */; };
+		1C7CF7D129374F18241C2B88 /* RadioCore in Frameworks */ = {isa = PBXBuildFile; productRef = E406388989D040851EB26D33 /* RadioCore */; };
+		23685CAB89CCE3A93E889FDF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBF7B835E413A5CDA1041F9 /* main.swift */; };
+		4ABFF1D2F53FD45CA9C5372F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DAAC8CF294EB70A42D8413 /* main.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0984418639565BC47EAF7E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1FBF7B835E413A5CDA1041F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */ = {isa = PBXFileReference; includeInIndex = 0; path = EOIC100RadioCLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E36E2BDA6E7FF9207BCC44 /* RadioCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RadioCore; path = RadioCore; sourceTree = SOURCE_ROOT; };
+		A9864581E25C66F27FB04930 /* EOIC100RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EOIC100RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8DAAC8CF294EB70A42D8413 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9B7FB7697EF95528B481D36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0465628702D50FE2ADF44D2C /* RadioCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F1BC1CA3373A4F047E8E6F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C7CF7D129374F18241C2B88 /* RadioCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		473342DBE673A6410731A05F = {
+			isa = PBXGroup;
+			children = (
+				D73588E101787EDC00496008 /* EOIC100RadioApp */,
+				E1246A488409639D232981E2 /* EOIC100RadioCLI */,
+				BB62984F8CC720FB87B3796D /* Packages */,
+				51363074FD2C98022F1FD025 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		51363074FD2C98022F1FD025 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9864581E25C66F27FB04930 /* EOIC100RadioApp.app */,
+				27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB62984F8CC720FB87B3796D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				60E36E2BDA6E7FF9207BCC44 /* RadioCore */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		D73588E101787EDC00496008 /* EOIC100RadioApp */ = {
+			isa = PBXGroup;
+			children = (
+				0984418639565BC47EAF7E0F /* Info.plist */,
+				1FBF7B835E413A5CDA1041F9 /* main.swift */,
+			);
+			path = EOIC100RadioApp;
+			sourceTree = "<group>";
+		};
+		E1246A488409639D232981E2 /* EOIC100RadioCLI */ = {
+			isa = PBXGroup;
+			children = (
+				C8DAAC8CF294EB70A42D8413 /* main.swift */,
+			);
+			path = EOIC100RadioCLI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3C935C846BE844841B288255 /* EOIC100RadioCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55BC30980537FEA01999688D /* Build configuration list for PBXNativeTarget "EOIC100RadioCLI" */;
+			buildPhases = (
+				3F75630324DE598DBE9F7775 /* Sources */,
+				C7F1BC1CA3373A4F047E8E6F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EOIC100RadioCLI;
+			packageProductDependencies = (
+				E406388989D040851EB26D33 /* RadioCore */,
+			);
+			productName = EOIC100RadioCLI;
+			productReference = 27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */;
+			productType = "com.apple.product-type.tool";
+		};
+		4849D4DC7E19ED14E6FF9DDA /* EOIC100RadioApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D823647F568FA2823898E4FB /* Build configuration list for PBXNativeTarget "EOIC100RadioApp" */;
+			buildPhases = (
+				60482183D6AAF2097E5043C1 /* Sources */,
+				B9B7FB7697EF95528B481D36 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EOIC100RadioApp;
+			packageProductDependencies = (
+				52A2439B14825C9E83079613 /* RadioCore */,
+			);
+			productName = EOIC100RadioApp;
+			productReference = A9864581E25C66F27FB04930 /* EOIC100RadioApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8359DE9056A3AB06C5F8EE3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = 9E4D4B70A0825C6279F9C84D /* Build configuration list for PBXProject "EOIC100Radio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 473342DBE673A6410731A05F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5E22D865B315631F0C5F52B0 /* XCLocalSwiftPackageReference "RadioCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4849D4DC7E19ED14E6FF9DDA /* EOIC100RadioApp */,
+				3C935C846BE844841B288255 /* EOIC100RadioCLI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F75630324DE598DBE9F7775 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ABFF1D2F53FD45CA9C5372F /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60482183D6AAF2097E5043C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23685CAB89CCE3A93E889FDF /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42388DE2B8707941A18AA13A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		46A64EB59ADE8BA93B918D78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = EOIC100RadioApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoic100.radio;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		94F371F77C3583BC92855580 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A7647BF6C40BF2B12BDD8360 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DC07F1EA9301F1D9C87B3D31 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		EDAC7F5E3A164972CA90ED16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = EOIC100RadioApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eoic100.radio;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		55BC30980537FEA01999688D /* Build configuration list for PBXNativeTarget "EOIC100RadioCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC07F1EA9301F1D9C87B3D31 /* Debug */,
+				42388DE2B8707941A18AA13A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9E4D4B70A0825C6279F9C84D /* Build configuration list for PBXProject "EOIC100Radio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94F371F77C3583BC92855580 /* Debug */,
+				A7647BF6C40BF2B12BDD8360 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D823647F568FA2823898E4FB /* Build configuration list for PBXNativeTarget "EOIC100RadioApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDAC7F5E3A164972CA90ED16 /* Debug */,
+				46A64EB59ADE8BA93B918D78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5E22D865B315631F0C5F52B0 /* XCLocalSwiftPackageReference "RadioCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = RadioCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52A2439B14825C9E83079613 /* RadioCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RadioCore;
+		};
+		E406388989D040851EB26D33 /* RadioCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RadioCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = B8359DE9056A3AB06C5F8EE3 /* Project object */;
+}

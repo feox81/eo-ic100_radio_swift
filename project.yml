@@ -1,0 +1,52 @@
+name: EOIC100Radio
+options:
+  createIntermediateGroups: true
+
+packages:
+  RadioCore:
+    path: RadioCore
+
+schemes:
+  EOIC100RadioApp:
+    build:
+      targets:
+        EOIC100RadioApp: all
+
+targets:
+  EOIC100RadioApp:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    info:
+      path: EOIC100RadioApp/Info.plist
+      properties:
+        CFBundleIdentifier: $(PRODUCT_BUNDLE_IDENTIFIER)
+        CFBundleName: $(PRODUCT_NAME)
+        CFBundleShortVersionString: "1.0"
+        CFBundleVersion: "1"
+        NSPrincipalClass: NSApplication
+        NSHighResolutionCapable: true
+    sources:
+      - path: EOIC100RadioApp
+    dependencies:
+      - package: RadioCore
+        product: RadioCore
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.eoic100.radio
+      SWIFT_VERSION: 5.9
+      MACOSX_DEPLOYMENT_TARGET: 13.0
+
+  EOIC100RadioCLI:
+    type: tool
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: EOIC100RadioCLI
+    dependencies:
+      - package: RadioCore
+        product: RadioCore
+    settings:
+      SWIFT_VERSION: 5.9
+      MACOSX_DEPLOYMENT_TARGET: 13.0
+
+
