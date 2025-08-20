@@ -7,7 +7,7 @@ let package = Package(
         .macOS(.v13)
     ],
     products: [
-        .library(name: "RadioCore", targets: ["EOIC100RadioKit"])
+        .library(name: "RadioCoreKit", targets: ["RadioCoreKit"])
     ],
     targets: [
         .target(
@@ -24,9 +24,9 @@ let package = Package(
             ]
         ),
         .target(
-            name: "EOIC100RadioKit",
+            name: "RadioCoreKit",
             dependencies: ["USBShim"],
-            path: "Sources/EOIC100RadioKit"
+            path: "Sources/RadioCoreKit"
         ),
     ]
 )

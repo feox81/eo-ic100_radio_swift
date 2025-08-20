@@ -3,21 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0465628702D50FE2ADF44D2C /* RadioCore in Frameworks */ = {isa = PBXBuildFile; productRef = 52A2439B14825C9E83079613 /* RadioCore */; };
-		1C7CF7D129374F18241C2B88 /* RadioCore in Frameworks */ = {isa = PBXBuildFile; productRef = E406388989D040851EB26D33 /* RadioCore */; };
+		1C7CF7D129374F18241C2B88 /* RadioCoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = E406388989D040851EB26D33 /* RadioCoreKit */; };
 		23685CAB89CCE3A93E889FDF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBF7B835E413A5CDA1041F9 /* main.swift */; };
 		4ABFF1D2F53FD45CA9C5372F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DAAC8CF294EB70A42D8413 /* main.swift */; };
+		BC5E28522E56108600BE515C /* RadioCoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = BC5E28512E56108600BE515C /* RadioCoreKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0984418639565BC47EAF7E0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1FBF7B835E413A5CDA1041F9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */ = {isa = PBXFileReference; includeInIndex = 0; path = EOIC100RadioCLI; sourceTree = BUILT_PRODUCTS_DIR; };
-		60E36E2BDA6E7FF9207BCC44 /* RadioCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = RadioCore; path = RadioCore; sourceTree = SOURCE_ROOT; };
+		27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EOIC100RadioCLI; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E36E2BDA6E7FF9207BCC44 /* RadioCore */ = {isa = PBXFileReference; lastKnownFileType = folder; path = RadioCore; sourceTree = SOURCE_ROOT; };
 		A9864581E25C66F27FB04930 /* EOIC100RadioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EOIC100RadioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DAAC8CF294EB70A42D8413 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0465628702D50FE2ADF44D2C /* RadioCore in Frameworks */,
+				BC5E28522E56108600BE515C /* RadioCoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C7CF7D129374F18241C2B88 /* RadioCore in Frameworks */,
+				1C7CF7D129374F18241C2B88 /* RadioCoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +49,7 @@
 				E1246A488409639D232981E2 /* EOIC100RadioCLI */,
 				BB62984F8CC720FB87B3796D /* Packages */,
 				51363074FD2C98022F1FD025 /* Products */,
+				BC5E28502E56108200BE515C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +68,13 @@
 				60E36E2BDA6E7FF9207BCC44 /* RadioCore */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		BC5E28502E56108200BE515C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D73588E101787EDC00496008 /* EOIC100RadioApp */ = {
@@ -102,7 +110,7 @@
 			);
 			name = EOIC100RadioCLI;
 			packageProductDependencies = (
-				E406388989D040851EB26D33 /* RadioCore */,
+				E406388989D040851EB26D33 /* RadioCoreKit */,
 			);
 			productName = EOIC100RadioCLI;
 			productReference = 27CFCF9AD61B3EBCE251A331 /* EOIC100RadioCLI */;
@@ -121,7 +129,7 @@
 			);
 			name = EOIC100RadioApp;
 			packageProductDependencies = (
-				52A2439B14825C9E83079613 /* RadioCore */,
+				BC5E28512E56108600BE515C /* RadioCoreKit */,
 			);
 			productName = EOIC100RadioApp;
 			productReference = A9864581E25C66F27FB04930 /* EOIC100RadioApp.app */;
@@ -134,7 +142,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1640;
 			};
 			buildConfigurationList = 9E4D4B70A0825C6279F9C84D /* Build configuration list for PBXProject "EOIC100Radio" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -149,7 +157,6 @@
 			packageReferences = (
 				5E22D865B315631F0C5F52B0 /* XCLocalSwiftPackageReference "RadioCore" */,
 			);
-			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -183,6 +190,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -197,7 +205,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = M3G6F6D9U2;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = EOIC100RadioApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -205,8 +219,12 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoic100.radio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -244,9 +262,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -306,9 +326,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -331,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -345,7 +368,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = M3G6F6D9U2;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = EOIC100RadioApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -353,8 +382,12 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.eoic100.radio;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -398,13 +431,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		52A2439B14825C9E83079613 /* RadioCore */ = {
+		BC5E28512E56108600BE515C /* RadioCoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RadioCore;
+			package = 5E22D865B315631F0C5F52B0 /* XCLocalSwiftPackageReference "RadioCore" */;
+			productName = RadioCoreKit;
 		};
-		E406388989D040851EB26D33 /* RadioCore */ = {
+		E406388989D040851EB26D33 /* RadioCoreKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RadioCore;
+			productName = RadioCoreKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

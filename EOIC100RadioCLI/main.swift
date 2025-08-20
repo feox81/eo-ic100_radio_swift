@@ -1,5 +1,5 @@
 import Foundation
-import EOIC100RadioKit
+import RadioCoreKit
 
 enum Command: String, CaseIterable {
 	case powerOn = "power-on"

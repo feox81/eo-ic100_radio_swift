@@ -204,6 +204,8 @@ public final class BesFM {
     public func setRds(_ on: Bool) { set(.rds, on ? 1 : 0) }
     public func getRds() -> Bool { get(.rdsStatus)[0] != 0 }
 
+    public func getRssi() -> UInt8 { get(.currentRssi)[0] }
+
     public func getStatus() -> BesFMStatus {
         let data = query(outLength: 12)
         guard !data.isEmpty else { return BesFMStatus(kind: .raw, success: nil, freqMHz: nil, strength: nil, error: nil, rds: nil, raw: Data()) }
@@ -236,5 +238,6 @@ public final class BesFM {
         return BesFMStatus(kind: .raw, success: nil, freqMHz: nil, strength: nil, error: nil, rds: nil, raw: Data(data))
     }
 }
+
 
 
