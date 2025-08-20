@@ -8,6 +8,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationShouldRestoreApplicationState(_ app: NSApplication) -> Bool { false }
     func applicationShouldSaveApplicationState(_ app: NSApplication) -> Bool { false }
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        NSApp.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
+    }
 }
 #endif
 
